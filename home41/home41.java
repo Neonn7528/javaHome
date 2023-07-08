@@ -2,7 +2,7 @@
 Реализуйте метод, который вернет “перевернутый” список. */
 import java.util.LinkedList;
 
-public class home4 {
+public class home41 {
     public static void main(String[] args) {
         LinkedList<Integer> originalList = new LinkedList<>();
         originalList.add(1);
