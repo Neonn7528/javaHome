@@ -1,47 +1,26 @@
-import java.util.ArrayList;
-import java.util.List;
+/*Пусть дан LinkedList с несколькими элементами. 
+Реализуйте метод, который вернет “перевернутый” список. */
+import java.util.LinkedList;
 
 public class home4 {
     public static void main(String[] args) {
-        List<Integer> numbers = new ArrayList<>();
-        numbers.add(2);
-        numbers.add(5);
-        numbers.add(9);
-        numbers.add(12);
-        numbers.add(3);
-        numbers.add(8);
-        numbers.add(7);
+        LinkedList<Integer> originalList = new LinkedList<>();
+        originalList.add(1);
+        originalList.add(2);
+        originalList.add(3);
+        originalList.add(4);
+        originalList.add(5);
 
-        System.out.println("Исходный список: " + numbers);
+        LinkedList<Integer> reversedList = reverseLinkedList(originalList);
+        System.out.println("Исходный список: " + originalList);
+        System.out.println("Перевернутый список: " + reversedList);
+    }
 
-        // Удаление четных чисел
-        numbers.removeIf(num -> num % 2 == 0);
-        System.out.println("Список после удаления четных чисел: " + numbers);
-
-        // Поиск минимального значения
-        int min = numbers.get(0);
-        for (int i = 1; i < numbers.size(); i++) {
-            if (numbers.get(i) < min) {
-                min = numbers.get(i);
-            }
+    public static LinkedList<Integer> reverseLinkedList(LinkedList<Integer> list) {
+        LinkedList<Integer> reversedList = new LinkedList<>();
+        for (int i = list.size() - 1; i >= 0; i--) {
+            reversedList.add(list.get(i));
         }
-        System.out.println("Минимальное значение: " + min);
-
-        // Поиск максимального значения
-        int max = numbers.get(0);
-        for (int i = 1; i < numbers.size(); i++) {
-            if (numbers.get(i) > max) {
-                max = numbers.get(i);
-            }
-        }
-        System.out.println("Максимальное значение: " + max);
-
-        // Поиск среднего значения
-        double sum = 0;
-        for (int num : numbers) {
-            sum += num;
-        }
-        double avg = sum / numbers.size();
-        System.out.println("Среднее значение: " + avg);
+        return reversedList;
     }
 }
